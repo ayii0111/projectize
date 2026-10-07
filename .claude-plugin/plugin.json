@@ -1,0 +1,8 @@
+{
+  "name": "projectize",
+  "description": "Name the current Claude Code session and turn it into a project under ~/cc-projects.",
+  "version": "0.1.0",
+  "author": {
+    "name": "ayii"
+  }
+}

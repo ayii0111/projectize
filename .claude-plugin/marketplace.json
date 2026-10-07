@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "projectize",
+  "description": "A Claude Code plugin to turn the current session into a named project under ~/cc-projects.",
+  "owner": {
+    "name": "ayii"
+  },
+  "plugins": [
+    {
+      "name": "projectize",
+      "description": "Name the current session and turn it into a project under ~/cc-projects.",
+      "author": {
+        "name": "ayii"
+      },
+      "category": "productivity",
+      "source": "./"
+    }
+  ]
+}
