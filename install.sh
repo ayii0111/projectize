@@ -18,9 +18,9 @@ claude plugin install "${NAME}@${NAME}"
 CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 mkdir -p "$CLAUDE_DIR/commands"
 if [ -n "$CMD_SRC" ]; then
-	cp "$CMD_SRC" "$CLAUDE_DIR/command-template/$NAME.md"
+	cp "$CMD_SRC" "$CLAUDE_DIR/commands/$NAME.md"
 else
-	curl -fsSL "https://raw.githubusercontent.com/$REPO/main/command-template/$NAME.md" -o "$CLAUDE_DIR/command-template/$NAME.md"
+	curl -fsSL "https://raw.githubusercontent.com/$REPO/main/command-template/$NAME.md" -o "$CLAUDE_DIR/commands/$NAME.md"
 fi
 
 echo "✓ 安裝完成。在 CC 執行 /reload-plugins 或重啟 CC 套用。"
