@@ -2,17 +2,19 @@
 set -e
 NAME="projectize"
 REPO="ayii0111/$NAME"
-# 本機執行：用本地路徑
+MARKET="custom-tools"
+# 本機執行：用本地路徑當 marketplace（開發用）
 if [ -f "$(dirname "$0")/.claude-plugin/plugin.json" ]; then
 	DIR="$(cd "$(dirname "$0")" && pwd)"
 	claude plugin marketplace add "$DIR"
+	claude plugin install "${NAME}@${NAME}"
 	CMD_SRC="$DIR/command-template/$NAME.md"
 else
-	# curl | bash：用 GitHub source
-	claude plugin marketplace add "$REPO"
+	# curl | bash：透過 custom-tools 市集安裝
+	claude plugin marketplace add "ayii0111/$MARKET" 2>/dev/null || claude plugin marketplace update "$MARKET"
+	claude plugin install "${NAME}@${MARKET}"
 	CMD_SRC=""
 fi
-claude plugin install "${NAME}@${NAME}"
 
 # 指令檔手動放進 ~/.claude/commands，避免顯示成「projectize:projectize」
 CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"

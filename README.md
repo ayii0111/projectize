@@ -10,6 +10,19 @@ curl -fsSL https://raw.githubusercontent.com/ayii0111/projectize/main/install.sh
 
 安裝後在 CC 執行 `/reload-plugins` 套用。
 
+### 透過 plugin 市集手動安裝
+
+本工具收錄於 [custom-tools](https://github.com/ayii0111/custom-tools) 市集：
+
+```bash
+claude plugin marketplace add ayii0111/custom-tools
+claude plugin install projectize@custom-tools
+# 指令檔另外放進 ~/.claude/commands（見「安裝原理」）
+curl -fsSL https://raw.githubusercontent.com/ayii0111/projectize/main/command-template/projectize.md -o ~/.claude/commands/projectize.md
+```
+
+開發時可改用本機資料夾作為 marketplace：在專案目錄執行 `./install.sh`（等同 `claude plugin marketplace add .` + `claude plugin install projectize@projectize` + 複製指令檔）。
+
 ## Uninstall
 
 ```bash
